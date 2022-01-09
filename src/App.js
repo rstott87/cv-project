@@ -1,25 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import AddSection from "./Components/AddSection"
 
-function App() {
+
+
+
+
+class App extends React.Component {
+  // eslint-disable-next-line no-useless-constructor
+  constructor(props){
+    super(props);
+    this.state = {
+      general: ['name', 'email', 'phone'],
+      education: ['school', 'degree'],
+      experience: ['job', 'years']
+    };
+  }
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <AddSection title={'General Section'}  arrayProp={this.state.general}/>
+     <AddSection title={'Education'} arrayProp={this.state.education}/>
+     <AddSection title={'Experience'}  arrayProp={this.state.experience}/>
     </div>
   );
 }
-
+}
 export default App;
